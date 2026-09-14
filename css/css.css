@@ -1,0 +1,844 @@
+/*rengør koden for tomme pladser med ctrl+f klik .* og skriv ^\s*\n og have intet tekst stående i erstat delen og derefter til højre vælg erstat alle*/
+
+/**
+ * file: css/css.css
+ * purpose: styling
+ **/
+/* Google fonts: importer fonte først */
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
+/* Sæt Commissioner som standardfont for alle inputfelter */
+input {
+  font-family: 'Commissioner', sans-serif;
+}
+input::placeholder {
+  font-family: 'Commissioner', sans-serif;
+}
+/*
+Sådan anvendes fonten: 
+  font-family: "Slackey", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+*/
+/* Fonte ("skrifttyper") placeres øverst */
+/* Farvepalette */
+/* Se: https://www.w3schools.com/css/css3_variables.asp */
+/* Sæt de parametre, som du får brug for - DRY! */
+:root {
+  /* farvepalette */
+  --black_mat:                      #1a1a1a;
+  --gray:                           #828788;
+  --astrogranite:                   #717478;
+  --granite3:                       #7174780e;
+  --granite1:                       #7174782d;
+  --granite4:                       #71747807;
+  --white:                          #FFFFFF;
+  --country-green:                  #1f4d3a;
+  --spruce:                         #065b38;
+  --keen_green:                     #306105;
+  /* Footer/Header/skrift */
+  --cement:                         #a4a28e;
+  --footer_emailkasse_bg_warm_grey: #504d4a;
+  --body_bg_bright_snow:            #cfcfd117;
+   /* Body */
+  --soft-blue:                      #0568868f;
+  --silk-web:                       #fafafb;
+ /* Call to action */
+  --footer_cta_call_to_action1:     #8faa8fb1; /* klassisk “pang” gul */
+  --pang:                           #fe3ae1; /* PANG!! eller - "Call to Action" */
+
+  /* whitespace */
+  --whitespace: 23px;
+}
+/* ===== FONT-KLASSER TIL OVERSKRIFTER ===== */
+.snatch {
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 700;
+}
+
+.underviserne {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.watch-image {
+  display: block;
+  margin: 180px auto 40px auto; /* centrerer billedet og giver luft under */
+  width: 70%; /* justér størrelsen efter behov */
+}
+
+.cta-container {
+  text-align: center;
+  width: 100%;
+  margin-top: calc(var(--whitespace) * 0.5);
+  margin-bottom: calc(var(--whitespace) * 2);
+}
+
+.cta-button {
+  background-color: var(--footer_cta_call_to_action1); /* cta */
+  color: var(--black_mat);
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer; /* viser hånd‑ikon ved hover */
+}
+
+.cta-button:hover {
+  background-color: var(--footer_cta_call_to_action1);
+}
+
+
+.watchout {
+  position: absolute; /* placerer teksten ovenpå billedet */
+  top: 5%; /* justér hvor højt teksten skal ligge */
+  left: 50%;
+  transform: translateX(-50%); /* centrerer teksten */
+  font-family: "Commissioner", sans-serif;
+  font-weight: 600;
+  color: #1a1a1a; /* mat sort farve */
+  text-align: center; /* centrer teksten under billedet */
+  z-index: 2; /* teksten ligger over billedet */
+}
+.watchout span {
+  font-family: 'Commissioner', sans-serif;
+}
+.engineered {
+  color: var(--footer_cta_call_to_action1); /* dyb blågrøn fra din palette */
+  font-weight: 700;
+}
+.watch-subtitle {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 10; /* ikke fed */
+  color: var(--cement); /* mat sort farve */
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+}
+/* Remove whitespace on top of certain browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; 
+}
+/* Generelle indstillinger  */
+body {
+  background-color: var(--silk-web); /* hovedbaggrund */
+  color: var(--text);}
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*Darkmode og lightmode*/
+.theme-switch {
+  display: flex;
+  align-items: center;        /* ← centrerer dem lodret */
+  gap: 5px;
+  padding-left: 40px;        /* ← kun darkmode får luft */  
+
+  /*margin-left: 1rem;         /* ← ekstra sikkerhed = centrerer dem igen */
+  /*justify-content: center;   /* ← centrerer dem vandret = tvinger dem til midten */
+  /*width: 100%;               /* ← gør at centring virker = gør dem lige så brede som hele linjen*/
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.theme-btn img {
+  width: 32px;
+  height: 32px;
+  filter: none;
+}
+
+
+
+.light {
+  --bg: var(--silk-web);
+  --text: var(--black_mat);
+  --footer-bg: var(--body_bg_bright_snow); /* lys footer */
+  --number-text: var(--cement);   /* mørk tekst */
+  --number-bg: var(--silk-web);   /* lys baggrund */
+  --newsletter-btn-bg: var(--cement);
+  --newsletter-form-bg: var(--cement); /* var farve i lys mode */
+  --newsletter-input-text: var(--black_mat);
+  --newsletter-input-bg: var(--cement);
+  --search-input-bg: var(--cement);
+  --search-input-text: var(--black_mat);
+  --header-bg: var(--body_bg_bright_snow);      /* lys header */
+  --header-text: var(--cement);      /* cement tekst i header */}
+
+.dark {
+  --bg: var(--black_mat);
+  --text: var(--cement);
+  --footer-bg: var(--black_mat); /* mørk footer */
+  --number-text: var(--cement);      /* lys tekst */
+  --number-bg: var(--black_mat);  /* mørk baggrund */
+  --newsletter-btn-bg: var(--cement);
+  --newsletter-form-bg: var(--cement); /* lys cement-grå i darkmode */
+  --newsletter-input-text: var(--black_mat);
+  --newsletter-input-bg: var(--cement);
+  --search-input-bg: var(--cement);  /* cement felt i dark mode */
+  --search-input-text: var(--black_mat); /* mørk tekst i feltet */
+  --header-bg: var(--black_mat);     /* mørk header */
+  --header-text: var(--cement);      /* lys tekst i header */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--cement) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1; /* justér gennemsigtighed */
+  pointer-events: none; /* så man stadig kan klikke på alt */
+  z-index: -1; /* sørger for at den ligger bag alt indhold */
+}
+  /* background-color: var(--silk-web); /* sådan bruges en CSS-variablel */
+  /*color: var(--mat_sort);
+  font-family: var(--broedTekst);
+  font-weight: 300; */
+/* ========================= */
+/* RESPONSIVT HEADER-DESIGN  */
+/* ========================= */
+/* NOTE: På mobil kan du gøre billedet lavere */
+@media only screen and (max-width: 600px) {
+  header {
+  background-color: var(--body_bg_bright_snow); /* lysere header */
+  position: relative;
+  z-index: 2;
+}
+} /* ← denne lukker media-query korrekt, VIGTIGT! */
+
+.main-footer {
+  background-color: var(--body_bg_bright_snow); /* lysere footer */
+  color: var(--cement);
+  font-family: 'Commissioner', sans-serif;
+  padding: 40px 20px; /* luft i top/bund og sider */
+  /*background: linear-gradient(to top, var(--cement), #1a1a1a);*/
+}
+.header-dotted-line {
+  border: none;
+  border-top: 4px dotted var(--cement);
+  width: 100%;
+  margin: 0;              /* ingen ekstra luft */
+  padding: 0;
+}
+.dotted-line {
+  border: none;
+  border-top: 4px dotted var(--cement);
+  width: 100%;
+  margin: 0;              /* ingen ekstra luft */
+  padding: 0;
+
+}
+.social-section {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.social-icons img {
+  width: 50px;
+  filter: none; /* gør ikonerne hvide på mørk baggrund */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+/* DARK MODE – hvide ikoner */
+.dark .social-icons img {
+  filter: invert(1);
+}
+
+/* LIGHT MODE – normale ikoner */
+.light .social-icons img {
+  filter: none;
+}
+/*----------------------------*/
+/* HOVER */
+.light .social-icons img:hover {
+  transform: scale(1.1);
+  filter: brightness(1) /*holder farven varm i stedet for hvid.*/
+          saturate(1) /*gør den mere mættet og "pang"*/
+          drop-shadow(0 0 1px var(--footer_cta_call_to_action2)); /*giver en tydelig glød*/
+}
+.dark .social-icons img:hover {
+  transform: scale(1.1);
+  filter: brightness(1) /*holder farven varm i stedet for hvid.*/
+          saturate(3) /*gør den mere mættet og "pang"*/
+          drop-shadow(0 0 1px var(--footer_cta_call_to_action1)); /*giver en tydelig glød*/
+}
+  /*----------------------------*/
+
+
+.footer-columns {
+  display: flex;            /*på række*/
+  flex-wrap: wrap;          /* holder dem på række på desktop */
+  justify-content: space-between;
+  align-items: flex-start; /*kolonnerne står mere centreret og harmonisk*/
+  gap: 40px;
+  max-width: 1200px; /* begrænser bredden */
+  margin: 0 auto;    /* centrerer kolonnerne */
+  padding: 0 20px;   /* luft i siderne */
+}
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-column.active ul {
+  display: block;     /* vis links når kolonnen er aktiv */
+}
+
+/* Reducér afstand på store skærme */
+@media only screen and (min-width: 1200px) {
+  .footer-columns {
+    gap: 30px; /* mindre luft mellem kolonner */
+  }
+}  
+/*Overskrift*/
+.footer-column h3 {
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/*Undertekst*/
+/*afstandende ml. afsnit for fx teksten "kontakt os" og supportcenter*/
+.footer-column ul li {
+  font-family: "Commissioner", sans-serif;
+  font-weight: 300; /* gør teksten lettere */
+  font-size: 0.9rem;
+  margin-bottom: 6px; /* lidt luft mellem linjerne */
+}
+/* Nyhedsbrev som kolonne */
+.footer-column.newsletter {
+  flex: 1 1 300px;
+  max-width: 320px;
+  margin-left: auto;
+}
+.newsletter {
+  text-align: left;
+  margin-bottom: 0; /* fjerner ekstra luft under hele sektionen */
+}
+.newsletter h3 {
+  font-weight: 700;
+  margin-bottom: 20px; /* reducerer afstand mellem input og teksten */
+}
+.newsletter form {
+  display: inline-flex;
+  /*border: 1px solid var(--pang);  = er en ramme rundt om hele newsletter boksen*/
+  border-radius: 0px; /*afrund hjørner funktion*/
+  overflow: hidden;
+  background-color: var(--newsletter-form-bg);
+}
+.newsletter-form {
+  margin-bottom: 10px; /* luft under e-mail feltet */
+}
+.newsletter-note {
+  margin-top: 10px; /* mindre luft over teksten */
+  line-height: 1.4; /* tættere linjeafstand */
+}
+.newsletter-note a {
+  color: var(--silk-web); /* vælg din egen farve */
+  text-decoration: underline; /* behold eller fjern stregen */
+}
+.newsletter-note a:hover {
+  color: var(--footer_emailkasse_bg_warm_grey); /* farve ved hover */
+}
+.newsletter input {
+  background-color: transparent;
+  border: 1px solid var(--cement);
+  color: var(--cement);
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.dark .newsletter input {
+  border: 1px solid var(--granite3);
+}
+
+.newsletter input::placeholder {
+  color: var(--cement);
+}
+.newsletter button {
+  background-color: var(--newsletter-btn-bg);
+  border: none;
+  padding: 0 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.newsletter button:hover {
+  background-color: var(--cement);
+  filter: brightness(1.15);
+}
+.newsletter button img {
+  width: 40px; /* gør ikonet større */
+  height: 40px;
+  fill: var(--cement);
+}
+.titel h1 {
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 700; /* eller hvad du ønsker */
+  font-style: normal;
+  font-size: 3rem;
+  padding-top: var(--whitespace);
+}
+.titel h2 {
+  font-size: 6rem;
+  margin-top: 40px; /* giver luft mellem slideshow og teksten */
+}
+/* Styles til navigation */
+/* Sticky navigation ("topklistret") */
+nav {
+  max-width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between; /* logo til venstre, burger til højre */  align-items: center;            /* centrerer dem vertikalt på samme linje */  
+  padding: 0 20px;                /* lidt luft i siderne */
+  z-index: 1; 
+  color: var(--header-text);  /* color: er altid skriftens farve */
+  background-color: var(--header-bg); /* baggrundsfarve på navigationen */
+}
+/* Samler søg, kurv og burger til højre */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;              /* lille luft mellem ikonerne */
+  margin-left: auto;      /* SKUBBER HELE GRUPPEN TIL HØJRE */
+}
+/* KATEGORI I MIDTEN */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  margin-top: 10px; /* luft mellem logo og links */
+  justify-content: center; /* CENTRERER LINKS/kategorierne */
+  
+
+  /*align-items: center;
+  /*padding-left: 20px;   /* ← kun darkmode får luft, resten rykker IKKE */
+  /*NYT: afstand fra headeren */
+}
+/* KATEGORI-LINKS I NAVIGATIONEN */
+.nav-links li a {
+  display: block;                 /* Gør linket til et blok-element, så hele området kan klikkes */
+  padding: 12px 14px;             /* Indvendig afstand omkring teksten */
+  text-decoration: none;          /* Fjerner stregen under linket */
+  color: var(--cement);           /* Farven på kategoriteksten */
+  /* FONTEN — Commissioner */
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1.125rem; /* ca. 17–18px */
+  font-weight: 100;               /* Commisioner standardvægt */
+  font-style: normal;             /* Commissioner standardstil */
+  letter-spacing: 1px;            /* Lidt luft mellem bogstaverne */
+  text-transform: uppercase;      /* Gør teksten til store bogstaver */
+}
+.nav-links li a:hover {
+  background-color: var(--granite4); /* Baggrundsfarve ved hover */
+}
+
+
+/* PURCHASE ICON (ved siden af burgeren) */
+.purchase-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.purchase-btn img {
+  width: 38px;
+  height: 38px;
+  display: inline-block;
+}
+/* Skarpere linjer på SVG-ikoner */
+.purchase-btn img,
+.search-btn img {
+  shape-rendering: geometricPrecision;
+  image-rendering: crisp-edges;
+}
+nav a {
+  color: var(--cement);
+  /* Hvordan fjerner man stregen under linket? Prøv! */
+}
+/* Gør logoet mindre */
+nav a img {
+  height: 100px;
+  width: auto;
+  margin-top: 0px; /* løfter logoet lidt op */
+}
+/* SØGEKNAP IKON */
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.search-btn img {
+  width: 28px;
+  height: 28px;
+  filter: none; /* gør ikonet lysere */
+}
+/* ========================= */
+/* BURGER-MENU (W3 VERSION) */
+/* ========================= */
+/* W3 NOTE: Dette er den klassiske W3Schools burger-menu styling */
+.container {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px; /* COPILOT NOTE: lille afstand fra kanten */
+  /*margin-left: auto; /* (SKUBBER BURGEREN TIL HØJRE) + kurv skal ind skjuler jeg koden for nu*/ 
+  position: relative;
+  z-index: 9999;
+}
+/* BURGER-MENU rillerne */
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 1px;
+  background-color: var(--cement); /* COPILOT NOTE: bruger din farvepalette */
+  margin: 6px 0;
+  transition: 0.4s;
+}
+/* W3 NOTE: Animationen der gør burgeren til et "X" */
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+/* Billeder fylder 100% af den plads der er til rådighed - en fordel i responsivt design */
+img {
+  /*width: 100%;*/
+  height:auto;
+}
+/* W3 NOTE: tekst for slided */
+.numbertext {
+  font-family: 'Commissioner', sans-serif;
+  background-color: var(--number-bg);
+  color: var(--number-text);  font-size: 14px;
+  position: absolute;
+  bottom: 1px;               /* flytter tallet ind i billedet */
+  right: 120px;                /* placerer det nederst til højre */
+  padding: 4px 8px;
+  border-radius: 1px;
+}
+
+@media only screen and (max-width: 600px) {
+  .numbertext {
+    right: 10px;
+  }
+}
+/* Portrætter af undervisere */
+.portraet {
+  height: 400px;
+  width: auto;
+}
+/* Centrer noget tekst */
+.centrer {
+  text-align: center;
+}
+h1,
+h2 {
+  padding: var(--whitespace);
+  text-align: center;
+}
+
+.flexdemo {
+  display: flex;
+  padding: var(--whitespace);
+  justify-content: space-around;
+  gap: 20px;
+}
+/*-------------------------*/
+/* Responsive regler */
+/* BREAKPOINTS
+  Se: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
+*/
+  /* Extra small devices (phones, 600px and down) */
+  /*@media only screen and (max-width: 600px) {...}*/
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  /*@media only screen and (min-width: 600px) {...}*/
+  /* Medium devices (landscape tablets, 768px and up) */
+  /*@media only screen and (min-width: 768px) {...}*/
+  /* Large devices (laptops/desktops, 992px and up) */
+  /*@media only screen and (min-width: 992px) {...}*/
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  /*@media only screen and (min-width: 1200px) {...}*/
+ /* Jeg demonstrerer to breakpoints: extra small og laptops*/
+ /*-------------------------*/
+/* Designet fungerer allerede på mobile, så her er udtagelser til større skærme */
+@media only screen and (max-width: 600px) {
+  /* Vi får brug for at flex-klassen er defineret på små skærme  */
+  .flexdemo {
+    padding: 2%;
+    display: block;
+    gap: 2rem;
+  }
+}
+/* Designet flexer til kolonner på større skærme. */
+@media only screen and (min-width: 992px) {
+  /* .flex : en "class" til containere, der skal vises som "kolonner" */
+  .flexdemo {
+  padding: 2%;
+  display:flex;
+  gap: 2rem;
+  }
+}
+/* ========================= */
+/* RESPONSIVT DESIGN (W3 VERSION TILPASSET ATTERDAG) */
+/* ========================= */
+/* COPILOT NOTE: Tablet breakpoint (max-width: 800px) */
+/* W3 NOTE: Dette svarer til W3’s tablet-regel */
+/* DUMMIES NOTE: På tablets bliver layoutet mere simpelt */
+@media only screen and (max-width: 800px) {
+  /* Navigation bliver stablet */
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  /* Flexdemo bliver til én kolonne */
+  .flexdemo {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+}
+/* COPILOT NOTE: Mobil breakpoint (max-width: 500px) */
+/* W3 NOTE: Dette svarer til W3’s mobil-regel */
+/* DUMMIES NOTE: Alt fylder 100% på mobilen */
+@media only screen and (max-width: 500px) {
+  /* Navigation står i én kolonne */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* Flexdemo bliver til én kolonne */
+  .flexdemo {
+    display: block;
+    width: 100%;
+  }
+}
+/* ========================= */
+/* 2: SKJUL MENU PÅ MOBIL */
+/* ========================= */
+/* W3 NOTE: Navigation skjules på små skærme */
+/* COPILOT NOTE: Burger-menuen skal kunne åbne/lukke navigationen */
+@media only screen and (max-width: 800px) {
+  #menu {
+    display: none;
+  }
+}
+/* ========================= */
+/* 3: VIS MENU NÅR BURGER ER AKTIV */
+/* ========================= */
+/* COPILOT NOTE: Når burgeren har klassen 'change', vises menuen */
+/* DUMMIES NOTE: .change + #menu betyder “vis elementet der står lige efter burgeren” */
+.change + #menu {
+  display: block;
+}
+/* FORSIDE-URE I RÆKKE */
+.forside-ure {
+  display: flex;
+  justify-content: center; /* centrerer dem vandret */
+  align-items: flex-start;
+  gap: 20px; /* afstand mellem urene */
+  padding: 40px 0; /* luft over og under */
+}
+.forside-ure img {
+  width: 260px; /* ens størrelse */
+  height: auto;
+  border-radius: 12px; /* blød kant */
+  transition: transform 0.3s ease;
+}
+.forside-ure img:hover {
+  transform: scale(1.05); /* let zoom ved hover */
+}
+/* SØGEFELT-CONTAINER (holder ikon + input sammen) */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* flex-direction: row-reverse; /* gør at input ligger til venstre for ikonet */
+}
+/* SØGEFELT (skjult som standard) */
+#search-input {
+  width: 0;                 /* skjult bredde */
+  opacity: 0;               /* usynlig */
+  padding: 8px 12px;
+  border: 1px solid var(--cement);
+  border-radius: 8px;
+  background-color: var(--search-input-bg);
+  color: var(--search-input-text);
+  transition: width 0.4s ease, opacity 0.4s ease; /* glidende animation */
+  margin-left: 10px;        /* luft mellem ikon og felt */
+}
+
+/* SØGEFELT (aktivt/åbent) */
+#search-input.active {
+  width: 180px;                              /* synlig bredde */
+  opacity: 1;                                /* synlig */
+  background-color: var(--search-input-bg);
+  color: var(--search-input-text);           /* ← samme tekstfarve */
+}
+/* AUTOMATISK SLIDESHOW */
+.slideshow-container {
+  max-width: 800px;       /* mindre end 1000px for bedre proportioner */
+  position: relative;
+  margin: auto;
+  margin-bottom: 10px; /* giver luft mellem slideshow og teksten */
+}
+/* BILLEDER */
+.mySlides {
+  position: relative; /* gør billedet til reference for nummereringen */
+  display: inline-block;
+  overflow: hidden; /* sørger for at nummeret ikke hopper udenfor */
+}
+.slideshow-container img {
+  width: 55%;   /* eller 50% */
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */ /* ramme rundt om slide billederne*/
+}
+/* DOTS (indikatorer) */
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 2px;
+  background-color: var(--cement);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  background-color: var(--cement);
+}
+/* FADE ANIMATION */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* RESPONSIV VISNING */
+@media only screen and (max-width: 768px) {
+  .slideshow-container img {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .footer-column h3 {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0;
+  }
+  .footer-column:not(.newsletter) {
+    border: 1px solid var(--footer_emailkasse_bg_warm_grey);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+  .footer-column:not(.newsletter) h3::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/footer_images/footer_fold_4.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .footer-column.active h3::after {
+    transform: translateY(-50%) rotate(90deg);
+  }
+}
+
+/*HUSK - @media-queries placeres nederst i CSSen, ellers bliver reglen overskrevet af andre*/
+@media only screen and (max-width: 600px) {
+  .footer-columns {
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 100%;        /* ← DENNE FIXER DET HVIDE FELT */
+    padding: 0 20px;
+  }
+
+  .footer-column {
+    width: 100%;   /* ← SÆT DEN HER */
+  }
+}
+.dark .main-footer {
+  background-color: var(--black_mat) !important;
+}
+
+.light #search-input::placeholder {
+  color: var(--black_mat);
+}
+
+.dark #search-input::placeholder {
+  color: var(--white); /* eller en lysere nuance */
+  opacity: 0.8;        /* gør den lidt afdæmpet men stadig synlig */  
+}
+.light .newsletter input {
+  background-color: var(--silk-web); /* lys baggrund */
+  border: 1px solid var(--cement);
+  color: var(--black_mat); /* mørk tekst */
+}
+
+.dark .newsletter input {
+  background-color: var(--black_mat); /* mørk baggrund */
+  border: 1px solid var(--cement);
+  color: var(--cement); /* lys tekst */
+}
+.light .newsletter-note a {
+  color: var(--black_mat); /* mørk tekst i lys mode */
+  text-decoration: underline;
+}
+
+.light .newsletter-note a:hover {
+  color: var(--footer_emailkasse_bg_warm_grey); /* varm grå ved hover */
+}
+body.light .newsletter-note a {
+  color: var(--black_mat); /* mørk tekst fra start */
+  text-decoration: underline;
+}
+
+body.light .newsletter-note a:hover {
+  color: var(--footer_emailkasse_bg_warm_grey);
+}
+
+body.dark .newsletter-note a {
+  color: var(--cement); /* lys tekst i dark mode */
+}
+
+body.dark .newsletter-note a:hover {
+  color: var(--footer_cta_call_to_action1);
+}

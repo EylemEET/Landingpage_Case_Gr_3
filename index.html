@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PULSE ATHLETICS</title>
+  <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body class="light">
+
+<!-- NAVIGATION: logo + burger + links SKAL ligge i samme <nav> -->
+<nav>
+  <!-- LOGO (venstre) -->
+  <!-- NOTE: Logo SKAL ligge inde i <nav>, ellers kan det ikke ligge på samme bjælke -->
+  <a href="index.html">
+    <img src="images/logo_2.png" alt="Logo: Pulse Athletics Logo">
+  </a>
+  <!-- IKONER (samlet til højre) -->
+  <div class="nav-icons">
+    <!-- SØGEFELT + IKON (åbner/lukker ved klik) -->
+  <div class="search-container">
+    <!-- SØGEKNAP (ikon) -->
+  <button class="search-btn" onclick="toggleSearch()">
+    <img src="images/searchbar_icon_cement.svg" alt="Søg">
+  </button>
+  <!-- SELVE SØGEFELTET (skjult indtil klik) -->
+  <input type="text" id="search-input" placeholder="Søg..." />
+</div>
+   <!-- KØBSKURV SKAL STÅ HER -->
+   <button class="purchase-btn">
+    <img src="images/Puchase_icon_cement.svg" alt="Purchase">
+   </button>
+   <!-- BURGER (højre) -->
+   <!-- NOTE: Burger SKAL stå efter logoet i HTML, så flex kan skubbe den til højre -->
+     <div class="container" onclick="myFunction(this)">
+       <div class="bar1"></div>
+       <div class="bar2"></div>
+        <div class="bar3"></div>
+     </div>
+   <!-- LINKS (midt eller skjult på mobil) -->
+   <!-- NOTE: Links kan stå hvor som helst i nav, men burgeren skal være før dem -->
+   <!--<div class="nav-links">
+    <a href="https://www.dr.dk/">Danmarks radio</a>
+    <a href="https://multimusen.dk">Multimusen</a>
+    <a href="#hop">Hop lidt</a>
+    <a href="#nyeKurser">Nye kurser</a>
+    </div>-->
+  </div>
+</nav>
+  <hr class="header-dotted-line">
+
+  <ul class="nav-links">
+    <li><a href="#ure">SMARTWATCHES</a></li>
+    <li><a href="#sport">SPORT OG TRÆNING </a></li>
+    <li><a href="#udendørs">OUTDOOR</a></li>
+    <li><a href="#tilbud">KAMPAGNER</a></li>
+  </ul>
+
+  
+    <!-- darkmode -->
+    <li class="theme-switch">
+      <button class="theme-btn" onclick="setTheme('light')">
+        <img src="images/body-lightmode.svg" alt="Light mode">
+      </button>
+      <button class="theme-btn" onclick="setTheme('dark')">
+        <img src="images/body_darkmode.svg" alt="Dark mode">
+      </button>
+    </li>
+<!-- Her kommer det vigtigste indhold -->
+<!-- VIDEO -->
+<article class="underviserne">
+  <video class="watch-image" autoplay muted loop playsinline>
+    <source src="images/Video_mp4/ur_1_video.mp4" type="video/mp4">
+  </video>
+
+  <div class="cta-container">
+    <button class="cta-button">KØB NU</button>
+  </div>
+
+  <h1 class="watchout">
+    <span class="engineered">ENGINEERED FOR ENDURANCE</span><br>
+    <span class="watch-subtitle">More power. Less charging with Silicon Battery Technology.</span><br>
+  </h1>
+</article>
+
+  <!-- Vi begynder med headeren -->
+  <header>
+  </header>
+  <main>
+    <section class="forside-ure">
+      <img src="images/ur_1.png" alt="Smartwatch grå rem">
+     <img src="images/ur_2.png" alt="Smartwatch sort rem">
+      <img src="images/ur_3.png" alt="Smartwatch grøn rem">
+    </section>
+  <!-- AUTOMATISK SLIDESHOW (viser urene under forsidebilledet) -->
+  <div class="slideshow-container">
+  <!-- BILLEDE 1 -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 4</div>
+    <img src="images/ur_1_front.png" alt="Smartwatch grøn rem forside">
+  </div>
+  <!-- BILLEDE 2 -->
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 4</div>
+    <img src="images/ur_1_side.png" alt="Smartwatch bagside">
+  </div>
+  <!-- BILLEDE 3 -->
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 4</div>
+    <img src="images/ur_1_rem.png" alt="Smartwatch sideprofil">
+  </div>
+  <!-- BILLEDE 4 -->
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 4</div>
+    <img src="images/ur_1_bund.png" alt="Smartwatch rem og spænde">
+  </div>
+</div>
+<!-- DOTS (indikatorer under slideshowet) -->
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span>
+</div>
+
+
+
+
+</main>
+  
+
+<!-- Aktiv footer -->
+<footer class="main-footer">
+  <div class="social-section">
+    <hr class="dotted-line">
+    <h2>Find os på</h2>
+    <div class="social-icons">
+      <img src="images/footer_images/brand_icon_fb.svg" alt="Facebook">
+      <img src="images/footer_images/brand_icon_ig.svg" alt="Instagram">
+      <img src="images/footer_images/brand_icon_x.svg" alt="X">
+      <img src="images/footer_images/brand_icon_yt.svg" alt="YouTube">
+    </div>
+  </div>
+  <!-- alle kolonner skal samles i én container -->
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h3>Kundeservice</h3>
+      <ul>
+        <li>Kontakt os</li>
+        <li>Supportcenter</li>
+        <li>Brugervejledninger</li>
+        <li>Levering & returnering</li>
+        <li>Garanti</li>
+        <li>Find forhandler</li>
+        <li>Sammenlign produkter</li>
+        <li>Salgs- og leveringsbetingelser</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Virksomhed</h3>
+      <ul>
+        <li>Om os</li>
+        <li>Blog</li>
+        <li>Ledige stillinger</li>
+        <li>Bæredygtighed</li>
+        <li>Investorer</li>
+        <li>Persondatapolitik</li>
+        <li>Handelsbetingelser</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Erhverv</h3>
+      <ul>
+        <li>Erhvervsløsninger</li>
+        <li>Brandambassadør</li>
+        <li>Udviklere</li>
+      </ul>
+    </div>
+  <!--Placering af nyhedsbrev-->
+    <div class="footer-column newsletter">
+      <h3>Tilmeld dig vores nyhedsbrev</h3>
+      <form class="newsletter-form">
+        <input type="email" placeholder="E-mail" required>
+        <button type="submit">
+        <img src="images/footer_images/footer_newsletter_3.svg" alt="Send">
+        </button>
+      </form>
+      <p class="newsletter-note">
+        Modtag produktnyheder og kampagner baseret på dine præferencer, enheder og tjenester.<br>
+    <a href="privatlivspolitik.html">Få mere at vide om beskyttelse af private e-mailoplysninger.</a>
+        </p>
+    </div>
+  </div>
+</footer>
+<script src="js/js.js"></script>   <!-- ← DENNE SKAL VÆRE AKTIV -->
+  <!-- ========================= -->
+  <!-- SCRIPT -->
+  <!-- ========================= -->
+  <!-- W3 NOTE: JavaScript toggler klassen "change" for at animere burgeren -->
+  <!-- COPILOT NOTE: Funktionen kan senere udvides til at vise/skjule navigationen -->
+  <script>
+    function myFunction(x) {
+      x.classList.toggle("change");
+    }
+  </script>
+  <!-- SØGEFELT: åbner/lukker ved klik -->
+  <script>
+  function toggleSearch() {
+    const input = document.getElementById("search-input");
+    /* toggler klassen 'active' som åbner/lukker feltet */
+    input.classList.toggle("active");
+    /* fokus i feltet når det åbnes */
+    if (input.classList.contains("active")) {
+      input.focus();
+    }
+  }
+  </script>
+  <!-- SCRIPT: AUTOMATISK SLIDESHOW -->
+  <script>
+  let slideIndex = 0;
+  showSlides();
+  function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 7000); // Skifter billede hver 2 sek.
+}
+</script>
+<script>
+  // FOOTER FOLD-FUNKTION
+  document.querySelectorAll('.footer-column:not(.newsletter) h3') /*.footer-column:not(.newsletter) h3 = betyder Find alle h3‑overskrifter i footer‑kolonner, undtagen nyhedsbrevet */
+    .forEach(header => {
+      header.addEventListener('click', () => {
+        header.parentElement.classList.toggle('active');
+      });
+    });
+</script>
+
+<script>
+function setTheme(mode) {
+  document.body.className = mode;
+}
+</script>
+
+
+</body>
+</html>
