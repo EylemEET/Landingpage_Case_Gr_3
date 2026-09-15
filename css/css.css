@@ -1,5 +1,4 @@
 /*rengør koden for tomme pladser med ctrl+f klik .* og skriv ^\s*\n og have intet tekst stående i erstat delen og derefter til højre vælg erstat alle*/
-
 /**
  * file: css/css.css
  * purpose: styling
@@ -29,13 +28,12 @@ Sådan anvendes fonten:
   /* farvepalette */
   --black_mat:                      #1a1a1a;
   --cement:                         #a4a28e;
-  --footer_emailkasse_bg_warm_grey: #504d4a;
-  --body_bg_bright_snow:            #cfcfd117;
-  --silk-web:                       #fafafb;
+  --warm_grey:                      #6c6a67;
+  --body_bg_bright_snow:            #fbfbfb;
+  --silk_web:                       #fafafb;
  /* Call to action */
-  --footer_cta_call_to_action1:     #8faa8fb1; /* klassisk “pang” gul */
+  --cta_call_to_action:             #b1c4b1; /* CTA knap */
   --pang:                           #fe3ae1; /* PANG!! eller - "Call to Action" */
-
   /* whitespace */
   --whitespace: 23px;
 }
@@ -44,8 +42,7 @@ Sådan anvendes fonten:
   font-family: 'Commissioner', sans-serif;
   font-weight: 700;
 }
-
-.underviserne {
+.produkt_hero {
   position: relative;
   max-width: 100%;
   overflow-x: hidden;
@@ -55,7 +52,6 @@ Sådan anvendes fonten:
   margin: 100px auto 40px auto; /* centrerer billedet og giver luft under */
   width: 80%; /* justér størrelsen efter behov */
 }
-
   /* CTA-knap for de 3 ure */
   /* Knappen ovenpå billedet */
 .cta-button-ur {
@@ -63,7 +59,7 @@ Sådan anvendes fonten:
   bottom: 15px; /* afstand fra bunden af billedet */
   left: 50%;
   transform: translateX(-50%); /* centrerer knappen vandret */
-  background-color: var(--silk-web);
+  background-color: var(--silk_web);
   color: var(--black_mat);
   font-family: 'Commissioner', sans-serif;
   font-weight: 600;
@@ -74,40 +70,27 @@ Sådan anvendes fonten:
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .cta-button-ur:hover {
-  background-color: var(--footer_cta_call_to_action1);
+  background-color: var(--cta_call_to_action);
 }
-
 .ur-kort {
   position: relative; /* gør det muligt at placere knappen inde i billedet */
   display: inline-block;
 }
-
 .ur-kort img {
   width: 260px;
   height: auto;
   border-radius: 12px;
   display: block;
 }
-
-
-
-
-
-
-
-
-
 .cta-container {
   text-align: center;
   width: 100%;
   margin-top: calc(var(--whitespace) * 0.5);
   margin-bottom: calc(var(--whitespace) * 2);
 }
-
 .cta-button {
-  background-color: var(--footer_cta_call_to_action1); /* cta */
+  background-color: var(--cta_call_to_action); /* cta */
   color: var(--black_mat);
   font-family: 'Commissioner', sans-serif;
   font-weight: 600;
@@ -117,9 +100,8 @@ Sådan anvendes fonten:
   border-radius: 6px;
   cursor: pointer; /* viser hånd‑ikon ved hover */
 }
-
 .cta-button:hover {
-  background-color: var(--footer_cta_call_to_action1);
+  background-color: var(--cta_call_to_action);
 }
 .feature-images {
 display: flex;
@@ -127,13 +109,11 @@ justify-content: center;
 gap: 20px;
 margin: 40px 0;
 }
-
 .feature-images img {
 width: 50%;
 max-width: 1200px;
 height: auto;
 }
-
 .watchout {
   position: absolute; /* placerer teksten ovenpå billedet */
   top: -2%; /* justér hvor højt teksten skal ligge */
@@ -149,7 +129,7 @@ height: auto;
   font-family: 'Commissioner', sans-serif;
 }
 .engineered {
-  color: var(--footer_cta_call_to_action1); /* dyb blågrøn fra din palette */
+  color: var(--cta_call_to_action); /* dyb blågrøn fra din palette */
   font-weight: 700;
 }
 .watch-subtitle {
@@ -174,11 +154,8 @@ html, body {
 }
 /* Generelle indstillinger  */
 body {
-  background-color: var(--silk-web); /* hovedbaggrund */
+  background-color: var(--silk_web); /* hovedbaggrund */
   color: var(--text);}
-
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
 /*Darkmode og lightmode*/
 .theme-switch {
   display: flex;
@@ -186,33 +163,28 @@ body {
   gap: 5px;
   padding-left: 40px;        /* ← kun darkmode får luft */  
   margin-top: 20px;   /* ← RYKKER MODE-KNAPPERNE NED */
-
+  list-style: none;
   /*margin-left: 1rem;         /* ← ekstra sikkerhed = centrerer dem igen */
   /*justify-content: center;   /* ← centrerer dem vandret = tvinger dem til midten */
   /*width: 100%;               /* ← gør at centring virker = gør dem lige så brede som hele linjen*/
 }
-
 .theme-btn {
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
 }
-
 .theme-btn img {
   width: 32px;
   height: 32px;
   filter: none;
 }
-
-
-
 .light {
-  --bg: var(--silk-web);
+  --bg: var(--silk_web);
   --text: var(--black_mat);
   --footer-bg: var(--body_bg_bright_snow); /* lys footer */
   --number-text: var(--cement);   /* mørk tekst */
-  --number-bg: var(--silk-web);   /* lys baggrund */
+  --number-bg: var(--silk_web);   /* lys baggrund */
   --newsletter-btn-bg: var(--cement);
   --newsletter-form-bg: var(--cement); /* var farve i lys mode */
   --newsletter-input-text: var(--black_mat);
@@ -221,7 +193,6 @@ body {
   --search-input-text: var(--black_mat);
   --header-bg: var(--body_bg_bright_snow);      /* lys header */
   --header-text: var(--cement);      /* cement tekst i header */}
-
 .dark {
   --bg: var(--black_mat);
   --text: var(--cement);
@@ -237,14 +208,10 @@ body {
   --header-bg: var(--black_mat);     /* mørk header */
   --header-text: var(--cement);      /* lys tekst i header */
 }
-
 body {
   background-color: var(--bg);
   color: var(--text);
 }
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
-
 body::before {
   content: "";
   position: absolute;
@@ -255,7 +222,7 @@ body::before {
   pointer-events: none; /* så man stadig kan klikke på alt */
   z-index: -1; /* sørger for at den ligger bag alt indhold */
 }
-  /* background-color: var(--silk-web); /* sådan bruges en CSS-variablel */
+  /* background-color: var(--silk_web); /* sådan bruges en CSS-variablel */
   /*color: var(--mat_sort);
   font-family: var(--broedTekst);
   font-weight: 300; */
@@ -270,7 +237,6 @@ body::before {
   z-index: 2;
 }
 } /* ← denne lukker media-query korrekt, VIGTIGT! */
-
 .main-footer {
   background-color: var(--body_bg_bright_snow); /* lysere footer */
   color: var(--cement);
@@ -291,7 +257,6 @@ body::before {
   width: 100%;
   margin: 0;              /* ingen ekstra luft */
   padding: 0;
-
 }
 .social-section {
   text-align: center;
@@ -307,28 +272,23 @@ body::before {
 .dark .social-icons img {
   filter: invert(1);
 }
-
 /* LIGHT MODE – normale ikoner */
 .light .social-icons img {
   filter: none;
 }
-/*----------------------------*/
 /* HOVER */
 .light .social-icons img:hover {
   transform: scale(1.1);
   filter: brightness(1) /*holder farven varm i stedet for hvid.*/
           saturate(1) /*gør den mere mættet og "pang"*/
-          drop-shadow(0 0 1px var(--footer_cta_call_to_action2)); /*giver en tydelig glød*/
+          drop-shadow(0 0 1px var(--cta_call_to_action)); /*giver en tydelig glød*/
 }
 .dark .social-icons img:hover {
   transform: scale(1.1);
   filter: brightness(1) /*holder farven varm i stedet for hvid.*/
           saturate(3) /*gør den mere mættet og "pang"*/
-          drop-shadow(0 0 1px var(--footer_cta_call_to_action1)); /*giver en tydelig glød*/
+          drop-shadow(0 0 1px var(--cta_call_to_action)); /*giver en tydelig glød*/
 }
-  /*----------------------------*/
-
-
 .footer-columns {
   display: flex;            /*på række*/
   flex-wrap: wrap;          /* holder dem på række på desktop */
@@ -346,7 +306,6 @@ body::before {
 .footer-column.active ul {
   display: block;     /* vis links når kolonnen er aktiv */
 }
-
 /* Reducér afstand på store skærme */
 @media only screen and (min-width: 1200px) {
   .footer-columns {
@@ -359,7 +318,6 @@ body::before {
   font-weight: 700;
   margin-bottom: 15px;
 }
-
 /*Undertekst*/
 /*afstandende ml. afsnit for fx teksten "kontakt os" og supportcenter*/
 .footer-column ul li {
@@ -397,11 +355,11 @@ body::before {
   line-height: 1.4; /* tættere linjeafstand */
 }
 .newsletter-note a {
-  color: var(--silk-web); /* vælg din egen farve */
+  color: var(--silk_web); /* vælg din egen farve */
   text-decoration: underline; /* behold eller fjern stregen */
 }
 .newsletter-note a:hover {
-  color: var(--footer_emailkasse_bg_warm_grey); /* farve ved hover */
+  color: var(--warm_grey); /* farve ved hover */
 }
 .newsletter input {
   background-color: transparent;
@@ -414,7 +372,6 @@ body::before {
 .dark .newsletter input {
   border: 1px solid var(--body_bg_bright_snow);
 }
-
 .newsletter input::placeholder {
   color: var(--cement);
 }
@@ -479,7 +436,6 @@ nav {
   gap: 5px;
   justify-content: center; /* CENTRERER LINKS/kategorierne */
   align-items: center;    /* ← centrer vertikalt */
-
   /*align-items: center;
   /*padding-left: 20px;   /* ← kun darkmode får luft, resten rykker IKKE */
   /*NYT: afstand fra headeren */
@@ -499,10 +455,8 @@ nav {
   text-transform: uppercase;      /* Gør teksten til store bogstaver */
 }
 .nav-links li a:hover {
-  background-color: var(--body_bg_bright_snow); /* Baggrundsfarve ved hover */
+  background-color: var(--warm_grey); /* Baggrundsfarve ved hover */
 }
-
-
 /* PURCHASE ICON (ved siden af burgeren) */
 .purchase-btn {
   background: none;
@@ -556,7 +510,6 @@ nav a img {
   z-index: 9999;
 }
 /* BURGER-MENU rillerne */
-
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 1px;
@@ -590,7 +543,6 @@ img {
   padding: 4px 8px;
   border-radius: 1px;
 }
-
 @media only screen and (max-width: 600px) {
   .numbertext {
     right: 10px;
@@ -610,14 +562,12 @@ h2 {
   padding: var(--whitespace);
   text-align: center;
 }
-
 .flexdemo {
   display: flex;
   padding: var(--whitespace);
   justify-content: space-around;
   gap: 20px;
 }
-/*-------------------------*/
 /* Responsive regler */
 /* BREAKPOINTS
   Se: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
@@ -633,7 +583,6 @@ h2 {
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   /*@media only screen and (min-width: 1200px) {...}*/
  /* Jeg demonstrerer to breakpoints: extra small og laptops*/
- /*-------------------------*/
 /* Designet fungerer allerede på mobile, så her er udtagelser til større skærme */
 @media only screen and (max-width: 600px) {
   /* Vi får brug for at flex-klassen er defineret på små skærme  */
@@ -718,7 +667,6 @@ h2 {
   border-radius: 12px; /* blød kant */
   transition: transform 0.3s ease;
 }
-
 /* SØGEFELT-CONTAINER (holder ikon + input sammen) */
 .search-container {
   position: relative;
@@ -738,7 +686,6 @@ h2 {
   transition: width 0.4s ease, opacity 0.4s ease; /* glidende animation */
   margin-left: 10px;        /* luft mellem ikon og felt */
 }
-
 /* SØGEFELT (aktivt/åbent) */
 #search-input.active {
   width: 180px;                              /* synlig bredde */
@@ -753,13 +700,11 @@ h2 {
   margin: auto;
   margin-bottom: 20px; /* giver luft mellem slideshow og teksten */
 }
-
 .slideshow-dots {
 text-align: center;
 margin-bottom: 80px;
 margin-top: 0px;
 }
-
 /* BILLEDER */
 .mySlides {
   position: relative; /* gør billedet til reference for nummereringen */
@@ -808,7 +753,7 @@ margin-top: 0px;
     margin-bottom: 0;
   }
   .footer-column:not(.newsletter) {
-    border: 1px solid var(--footer_emailkasse_bg_warm_grey);
+    border: 1px solid var(--warm_grey);
     padding: 20px;
     margin-bottom: 10px;
 }
@@ -825,12 +770,10 @@ margin-top: 0px;
     background-size: contain;
     transition: transform 0.3s ease;
   }
-
   .footer-column.active h3::after {
     transform: translateY(-50%) rotate(90deg);
   }
 }
-
 /*HUSK - @media-queries placeres nederst i CSSen, ellers bliver reglen overskrevet af andre*/
 @media only screen and (max-width: 600px) {
   .footer-columns {
@@ -839,7 +782,6 @@ margin-top: 0px;
     max-width: 100%;        /* ← DENNE FIXER DET HVIDE FELT */
     padding: 0 20px;
   }
-
   .footer-column {
     width: 100%;   /* ← SÆT DEN HER */
   }
@@ -847,21 +789,18 @@ margin-top: 0px;
 .dark .main-footer {
   background-color: var(--black_mat) !important;
 }
-
 .light #search-input::placeholder {
   color: var(--black_mat);
 }
-
 .dark #search-input::placeholder {
   color: var(--white); /* eller en lysere nuance */
   opacity: 0.8;        /* gør den lidt afdæmpet men stadig synlig */  
 }
 .light .newsletter input {
-  background-color: var(--silk-web); /* lys baggrund */
+  background-color: var(--silk_web); /* lys baggrund */
   border: 1px solid var(--cement);
   color: var(--black_mat); /* mørk tekst */
 }
-
 .dark .newsletter input {
   background-color: var(--black_mat); /* mørk baggrund */
   border: 1px solid var(--cement);
@@ -871,28 +810,22 @@ margin-top: 0px;
   color: var(--black_mat); /* mørk tekst i lys mode */
   text-decoration: underline;
 }
-
 .light .newsletter-note a:hover {
-  color: var(--footer_emailkasse_bg_warm_grey); /* varm grå ved hover */
+  color: var(--warm_grey); /* varm grå ved hover */
 }
 body.light .newsletter-note a {
   color: var(--black_mat); /* mørk tekst fra start */
   text-decoration: underline;
 }
-
 body.light .newsletter-note a:hover {
-  color: var(--footer_emailkasse_bg_warm_grey);
+  color: var(--warm_grey);
 }
-
 body.dark .newsletter-note a {
   color: var(--cement); /* lys tekst i dark mode */
 }
-
 body.dark .newsletter-note a:hover {
-  color: var(--footer_cta_call_to_action1);
+  color: var(--cta_call_to_action);
 }
-
-
 /* Logo container */
 .logo {
   display: block;
@@ -901,12 +834,10 @@ body.dark .newsletter-note a:hover {
   background-repeat: no-repeat;
   background-size: contain;
 }
-
 /* Light mode logo */
 body.light .logo {
   background-image: url("../images/header_logoer/header_logo_darkmode.svg");
 }
-
 /* Dark mode logo */
 body.dark .logo {
   background-image: url("../images/header_logoer/header_logo_lightmode.svg");

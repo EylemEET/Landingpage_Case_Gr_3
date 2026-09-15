@@ -8,15 +8,12 @@
   <link rel="stylesheet" href="css/css.css">
   <link rel="icon" type="image/svg+xml" href="images/browser_logoer/browser_logo_1.svg">
 </head>
-
 <body class="dark">
-
 <!-- NAVIGATION: logo + burger + links SKAL ligge i samme <nav> -->
 <nav>
   <!-- LOGO (venstre) -->
   <!-- NOTE: Logo SKAL ligge inde i <nav>, ellers kan det ikke ligge på samme bjælke -->
   <a href="index.html" class="logo"></a>
-  <!-- ----------------------------------------------------------------------------------------- -->
   <!-- IKONER (samlet til højre) -->
   <!-- KATEGORIER -->
   <ul class="nav-links">
@@ -24,13 +21,8 @@
     <li><a href="#sport">SPORT</a></li>
     <li><a href="#udendørs">OUTDOOR</a></li>
     <li><a href="#tilbud">KAMPAGNER</a></li>
-
     <li><a href="https://www.figma.com/design/xeY7vMmTuhF1IEMfYi2Xxv/Landingpage-Athletic-pulse?node-id=67-115&p=f&t=XcP2AAXsLXty4uqg-0" target="_blank">FIGMA GALLERY</a></li>
-
-
   </ul>
-
-
   <div class="nav-icons">
     <!-- SØGEFELT + IKON (åbner/lukker ved klik) -->
   <div class="search-container">
@@ -43,7 +35,7 @@
 </div>
    <!-- KØBSKURV SKAL STÅ HER -->
    <button class="purchase-btn">
-    <img src="images/Puchase_icon_cement.svg" alt="Purchase">
+    <img src="images/purchase_icon_cement.svg" alt="Purchase">
    </button>
    <!-- BURGER (højre) -->
    <!-- NOTE: Burger SKAL stå efter logoet i HTML, så flex kan skubbe den til højre -->
@@ -61,65 +53,53 @@
     <a href="#nyeKurser">Nye kurser</a>
     </div>-->
   </div>
-
-
-
-
-
-
 </nav>
   <hr class="header-dotted-line">
-  
     <!-- darkmode -->
-    <li class="theme-switch">
-      <button class="theme-btn" onclick="setTheme('light')">
-        <img src="images/body-lightmode.svg" alt="Light mode">
-      </button>
-      <button class="theme-btn" onclick="setTheme('dark')">
-        <img src="images/body_darkmode.svg" alt="Dark mode">
-      </button>
-    </li>
+<ul class="theme-switch">
+  <li>
+    <button class="theme-btn" onclick="setTheme('light')">
+      <img src="images/body-lightmode.svg" alt="Light mode">
+    </button>
+  </li>
+  <li>
+    <button class="theme-btn" onclick="setTheme('dark')">
+      <img src="images/body_darkmode.svg" alt="Dark mode">
+    </button>
+  </li>
+</ul>
 <!-- Her kommer det vigtigste indhold -->
 <!-- VIDEO -->
-<article class="underviserne">
+<article class="produkt_hero">
   <video class="watch-image" autoplay muted loop playsinline>
-    <source src="images/Video_mp4/ur_1_video_animation.mp4" type="video/mp4">
+    <source src="images/video_mp4/ur_1_video_animation.mp4" type="video/mp4">
   </video>
-
   <div class="cta-container">
     <button class="cta-button">KØB NU</button>
   </div>
-
   <h1 class="watchout">
     <span class="engineered">PROGRESS. MADE VISIBLE.</span><br>
-    <span class="watch-subtitle">Et smartwatch, der guider din udvikling — ikke bare registrerer dine tal.</span><br>
+    <span class="watch-subtitle">En smartwatch, der guider din udvikling — ikke bare registrerer dine tal.</span><br>
   </h1>
 </article>
-
   <!-- Vi begynder med headeren -->
   <header>
   </header>
   <main>
-
-
-<section class="forside-ure">
+<div class="forside-ure">
   <div class="ur-kort">
     <img src="images/ur_1.png" alt="Smartwatch grå rem">
     <button class="cta-button-ur">KØB NU</button>
   </div>
-
   <div class="ur-kort">
     <img src="images/ur_2.png" alt="Smartwatch sort rem">
     <button class="cta-button-ur">KØB NU</button>
   </div>
-
   <div class="ur-kort">
     <img src="images/ur_3.png" alt="Smartwatch grøn rem">
     <button class="cta-button-ur">KØB NU</button>
   </div>
-</section>
-
-
+</div>
   <!-- AUTOMATISK SLIDESHOW (viser urene under forsidebilledet) -->
   <div class="slideshow-container">
   <!-- BILLEDE 1 -->
@@ -150,13 +130,11 @@
   <span class="dot"></span>
   <span class="dot"></span>
 </div>
-
 <!-- VIDEO -->
-<article class="underviserne">
+<article class="produkt_hero">
   <video class="watch-image" autoplay muted loop playsinline>
-    <source src="images/Video_mp4/ur_1_video.mp4" type="video/mp4">
+    <source src="images/video_mp4/ur_1_video.mp4" type="video/mp4">
   </video>
-
   <div class="cta-container">
     <button class="cta-button">KØB NU</button>
   </div>
@@ -164,20 +142,12 @@
     <span class="engineered">ENGINEERED FOR ENDURANCE</span><br>
     <span class="watch-subtitle">More power. Less charging with Silicon Battery Technology.</span><br>
   </h1>
-
-  
 </article>
-  <section class="feature-images">
-  <img src="images/opsat_2.png" alt="Funktioner på smartwatch">
+  <div class="feature-images">
   <img src="images/opsat_1.png" alt="Funktioner på smartwatch">
-  </section>
-
-
-
-
+  <img src="images/opsat_2.png" alt="Funktioner på smartwatch">
+  </div>
 </main>
-  
-
 <!-- Aktiv footer -->
 <footer class="main-footer">
   <div class="social-section">
@@ -294,13 +264,10 @@
       });
     });
 </script>
-
 <script>
 function setTheme(mode) {
   document.body.className = mode;
 }
 </script>
-
-
 </body>
 </html>
