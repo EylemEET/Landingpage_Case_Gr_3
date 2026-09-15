@@ -129,7 +129,7 @@ height: auto;
   font-family: 'Commissioner', sans-serif;
 }
 .engineered {
-  color: var(--cta_call_to_action); /* dyb blågrøn fra din palette */
+  color: var(--cta_call_to_action); /* sagegrøn fra palette */
   font-weight: 700;
 }
 .watch-subtitle {
@@ -137,10 +137,10 @@ height: auto;
   font-size: 1.25rem;
   font-style: italic;
   font-weight: 10; /* ikke fed */
-  color: var(--cement); /* mat sort farve */
+  color: var(--cement); /* Kursivt tekstfarve */
   margin-top: 8px;
   line-height: 1.5;
-  font-style: italic;
+  font-style: italic; /*Kursivt*/
 }
 /* Remove whitespace on top of certain browsers */
 * {
