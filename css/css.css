@@ -28,21 +28,9 @@ Sådan anvendes fonten:
 :root {
   /* farvepalette */
   --black_mat:                      #1a1a1a;
-  --gray:                           #828788;
-  --astrogranite:                   #717478;
-  --granite3:                       #7174780e;
-  --granite1:                       #7174782d;
-  --granite4:                       #71747807;
-  --white:                          #FFFFFF;
-  --country-green:                  #1f4d3a;
-  --spruce:                         #065b38;
-  --keen_green:                     #306105;
-  /* Footer/Header/skrift */
   --cement:                         #a4a28e;
   --footer_emailkasse_bg_warm_grey: #504d4a;
   --body_bg_bright_snow:            #cfcfd117;
-   /* Body */
-  --soft-blue:                      #0568868f;
   --silk-web:                       #fafafb;
  /* Call to action */
   --footer_cta_call_to_action1:     #8faa8fb1; /* klassisk “pang” gul */
@@ -64,9 +52,52 @@ Sådan anvendes fonten:
 }
 .watch-image {
   display: block;
-  margin: 180px auto 40px auto; /* centrerer billedet og giver luft under */
-  width: 70%; /* justér størrelsen efter behov */
+  margin: 100px auto 40px auto; /* centrerer billedet og giver luft under */
+  width: 80%; /* justér størrelsen efter behov */
 }
+
+  /* CTA-knap for de 3 ure */
+  /* Knappen ovenpå billedet */
+.cta-button-ur {
+  position: absolute;
+  bottom: 15px; /* afstand fra bunden af billedet */
+  left: 50%;
+  transform: translateX(-50%); /* centrerer knappen vandret */
+  background-color: var(--silk-web);
+  color: var(--black_mat);
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button-ur:hover {
+  background-color: var(--footer_cta_call_to_action1);
+}
+
+.ur-kort {
+  position: relative; /* gør det muligt at placere knappen inde i billedet */
+  display: inline-block;
+}
+
+.ur-kort img {
+  width: 260px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+
+
+
+
+
+
+
 
 .cta-container {
   text-align: center;
@@ -90,11 +121,22 @@ Sådan anvendes fonten:
 .cta-button:hover {
   background-color: var(--footer_cta_call_to_action1);
 }
+.feature-images {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+}
 
+.feature-images img {
+width: 50%;
+max-width: 1200px;
+height: auto;
+}
 
 .watchout {
   position: absolute; /* placerer teksten ovenpå billedet */
-  top: 5%; /* justér hvor højt teksten skal ligge */
+  top: -2%; /* justér hvor højt teksten skal ligge */
   left: 50%;
   transform: translateX(-50%); /* centrerer teksten */
   font-family: "Commissioner", sans-serif;
@@ -143,6 +185,7 @@ body {
   align-items: center;        /* ← centrerer dem lodret */
   gap: 5px;
   padding-left: 40px;        /* ← kun darkmode får luft */  
+  margin-top: 20px;   /* ← RYKKER MODE-KNAPPERNE NED */
 
   /*margin-left: 1rem;         /* ← ekstra sikkerhed = centrerer dem igen */
   /*justify-content: center;   /* ← centrerer dem vandret = tvinger dem til midten */
@@ -369,7 +412,7 @@ body::before {
   transition: all 0.3s ease;
 }
 .dark .newsletter input {
-  border: 1px solid var(--granite3);
+  border: 1px solid var(--body_bg_bright_snow);
 }
 
 .newsletter input::placeholder {
@@ -414,7 +457,8 @@ nav {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: space-between; /* logo til venstre, burger til højre */  align-items: center;            /* centrerer dem vertikalt på samme linje */  
+  justify-content: center; /* logo til venstre, burger til højre */  align-items: center;            /* centrerer dem vertikalt på samme linje */  
+  gap: 40px;                 /* ← giver luft mellem logo og kategorier */
   padding: 0 20px;                /* lidt luft i siderne */
   z-index: 1; 
   color: var(--header-text);  /* color: er altid skriftens farve */
@@ -431,10 +475,10 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
+  flex: 1;                 /* ← GØR KATEGORIERNE TIL MIDTERKOLONNEN */
   gap: 5px;
-  margin-top: 10px; /* luft mellem logo og links */
   justify-content: center; /* CENTRERER LINKS/kategorierne */
-  
+  align-items: center;    /* ← centrer vertikalt */
 
   /*align-items: center;
   /*padding-left: 20px;   /* ← kun darkmode får luft, resten rykker IKKE */
@@ -455,7 +499,7 @@ nav {
   text-transform: uppercase;      /* Gør teksten til store bogstaver */
 }
 .nav-links li a:hover {
-  background-color: var(--granite4); /* Baggrundsfarve ved hover */
+  background-color: var(--body_bg_bright_snow); /* Baggrundsfarve ved hover */
 }
 
 
@@ -674,9 +718,7 @@ h2 {
   border-radius: 12px; /* blød kant */
   transition: transform 0.3s ease;
 }
-.forside-ure img:hover {
-  transform: scale(1.05); /* let zoom ved hover */
-}
+
 /* SØGEFELT-CONTAINER (holder ikon + input sammen) */
 .search-container {
   position: relative;
@@ -709,8 +751,15 @@ h2 {
   max-width: 800px;       /* mindre end 1000px for bedre proportioner */
   position: relative;
   margin: auto;
-  margin-bottom: 10px; /* giver luft mellem slideshow og teksten */
+  margin-bottom: 20px; /* giver luft mellem slideshow og teksten */
 }
+
+.slideshow-dots {
+text-align: center;
+margin-bottom: 80px;
+margin-top: 0px;
+}
+
 /* BILLEDER */
 .mySlides {
   position: relative; /* gør billedet til reference for nummereringen */
@@ -841,4 +890,24 @@ body.dark .newsletter-note a {
 
 body.dark .newsletter-note a:hover {
   color: var(--footer_cta_call_to_action1);
+}
+
+
+/* Logo container */
+.logo {
+  display: block;
+  width: 200px;   /* ← gør logoet bredere */
+  height: 100px;   /* ← gør logoet højere */
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Light mode logo */
+body.light .logo {
+  background-image: url("../images/header_logoer/header_logo_darkmode.svg");
+}
+
+/* Dark mode logo */
+body.dark .logo {
+  background-image: url("../images/header_logoer/header_logo_lightmode.svg");
 }
